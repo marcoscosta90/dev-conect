@@ -45,15 +45,7 @@ function Header() {
                 </SvgIcon>
                 <Avatar alt="Memy Sharp" src="/" />
             </div>
-          {/* <div>
-            <a href="/">Conecta Dev </a>
-            <input type="text"></input>
-         </div>
-          <div>
-           
-            <span>Img1</span>
-            <span>Img2</span>
-        </div> */}
+         
         </Toolbar>
     </AppBar>
     )
