@@ -32,6 +32,17 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2, 4),
     },
   }));
+
+function Copyright() {
+   return (
+       <Typography variant="body2" align="center">
+           {'Copyright '}
+           <a color="inherit" href="https://www.linkedin.com/in/marcoscosta90/" > Marcos Costa </a>
+           {''}
+           {new Date().getFullYear()}
+       </Typography>
+   ) 
+}
  
 
 function SignIn() {
@@ -79,7 +90,7 @@ function SignIn() {
                         <Typography variant="h5">
                             Acesso
                         </Typography>
-                        <form>
+                        <form className={classes.form}>
                             <TextField
                                 variant="outlined"
                                 margin="normal"
@@ -108,7 +119,8 @@ function SignIn() {
                                 className={classes.button}>
                                     Entrar
                             </Button>
-                        </form>               
+                        </form>
+                        <Copyright />               
                     </Box>
             </Grid>
         </Grid>  
