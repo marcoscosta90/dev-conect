@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -8,7 +8,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import authService from '../../services/authService'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,7 +50,24 @@ function Copyright() {
 
 function SignIn() {
     const classes = useStyles();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
+
+    async function handleSignIn() {
+        try {
+           await authService.signIn('marcoscosta.dev@gmail.com','admin');
+           //200
+           navigate('/')
+        } catch(error) {
+            console.log(error.response)
+        }       
+    }
+
+    console.log(email)
+
+
     return (
         <Grid container className={classes.root}>
             <Grid 
@@ -102,7 +120,9 @@ function SignIn() {
                                 label="E-mail"
                                 name="email"
                                 autoComplete="email"
-                                autoFocus                            
+                                autoFocus
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}                            
                             />
                             <TextField
                                 variant="outlined"
@@ -113,14 +133,16 @@ function SignIn() {
                                 label="Senha"
                                 type="password"
                                 id="password"
-                                autoComplete="current-password"                            
+                                autoComplete="current-password"
+                                value={password} 
+                                onChange={(event) => setPassword(event.target.value)}                             
                             />
                             <Button 
                                 fullWidth
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
-                                onClick={() => navigate('/')}>
+                                onClick={handleSignIn}>
                                     Entrar
                             </Button>
                             <Grid container>
