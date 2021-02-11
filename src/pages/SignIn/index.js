@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import { useNavigate } from 'react-router-dom';
 import authService from '../../services/authService'
+import { FormHelperText } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -53,15 +54,16 @@ function SignIn() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState();
     
 
     async function handleSignIn() {
         try {
-           await authService.signIn('marcoscosta.dev@gmail.com','admin');
+           await authService.signIn(email, password);
            //200
            navigate('/')
         } catch(error) {
-            console.log(error.response)
+            setErrorMessage(error.response.data.message)
         }       
     }
 
@@ -145,6 +147,11 @@ function SignIn() {
                                 onClick={handleSignIn}>
                                     Entrar
                             </Button>
+                            {errorMessage &&
+                                <FormHelperText error>
+                                    {errorMessage}
+                                </FormHelperText>    
+                            }
                             <Grid container>
                                 <Grid item>
                                     <Link>Esqueceu sua senha?</Link>

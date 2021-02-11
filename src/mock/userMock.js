@@ -10,7 +10,7 @@ mock.onPost('/api/home/login').reply((config) => {
     const { email, password } = JSON.parse(config.data);
 
     if(email !== 'marcoscosta.dev@gmail.com' || password !== 'admin') {
-        return [400, {message: 'seu email ou senha estao incorretos'}]
+        return [400, {message: 'Seu email ou Senha estão incorretos'}]
     }
 
     const user = {
