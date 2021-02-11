@@ -6,7 +6,9 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+import { useNavigate } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,7 +49,7 @@ function Copyright() {
 
 function SignIn() {
     const classes = useStyles();
-    
+    const navigate = useNavigate()
     return (
         <Grid container className={classes.root}>
             <Grid 
@@ -113,12 +115,22 @@ function SignIn() {
                                 id="password"
                                 autoComplete="current-password"                            
                             />
-                            <Button fullWidth
+                            <Button 
+                                fullWidth
                                 variant="contained"
                                 color="primary"
-                                className={classes.button}>
+                                className={classes.button}
+                                onClick={() => navigate('/')}>
                                     Entrar
                             </Button>
+                            <Grid container>
+                                <Grid item>
+                                    <Link>Esqueceu sua senha?</Link>
+                                </Grid>
+                                <Grid item>
+                                    <Link>Nao tem uma conta? Registre-se</Link>
+                                </Grid>
+                            </Grid>
                         </form>
                         <Copyright />               
                     </Box>
