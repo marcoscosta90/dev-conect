@@ -9,8 +9,9 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import { useNavigate } from 'react-router-dom';
-import authService from '../../services/authService'
 import { FormHelperText } from '@material-ui/core';
+import { useDispatch } from 'react-redux'
+import { signIn }  from '../../actions/accountActions'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -52,22 +53,24 @@ function Copyright() {
 function SignIn() {
     const classes = useStyles();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState();
     
+    
 
     async function handleSignIn() {
-        try {
-           await authService.signIn(email, password);
+        try {          
+           await dispatch(signIn(email, password));
            //200
            navigate('/')
         } catch(error) {
             setErrorMessage(error.response.data.message)
+            console.log(error)
         }       
-    }
-
-    console.log(email)
+    }    
 
 
     return (

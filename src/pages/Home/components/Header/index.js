@@ -5,8 +5,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { Bell } from 'react-feather';
-import Avatar from '@material-ui/core/Avatar';
-import authService from '../../../services/authService'
+import Account from './Account'
+
 
 const useStyles = makeStyles({
     appBar: {
@@ -32,8 +32,8 @@ const useStyles = makeStyles({
 
 function Header() {
     const classes = useStyles();
-    const user = authService.getUser();
-    console.log(user)
+
+    
 
  return (   
     <AppBar position="fixed" color="inherit" className={classes.appBar}>
@@ -47,7 +47,8 @@ function Header() {
                 <SvgIcon className={classes.bell}>
                     <Bell />
                 </SvgIcon>
-                <Avatar alt="Memy Sharp" src={user && user.avatar} />
+                <Account />
+               
             </div>
          
         </Toolbar>
