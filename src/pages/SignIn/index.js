@@ -57,9 +57,7 @@ function SignIn() {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState();
-    
-    
+    const [errorMessage, setErrorMessage] = useState();        
 
     async function handleSignIn() {
         try {          
@@ -67,11 +65,9 @@ function SignIn() {
            //200
            navigate('/')
         } catch(error) {
-            setErrorMessage(error.response.data.message)
-            console.log(error)
+            setErrorMessage(error.response.data.message)            
         }       
-    }    
-
+    }  
 
     return (
         <Grid container className={classes.root}>

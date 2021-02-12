@@ -23,8 +23,7 @@ class AuthService {
         return new Promise((resolve, reject) => {
             axios.post('/api/home/me')
             .then(response => {
-                if(response.data.user) {
-                    this.setToken('JWT')
+                if(response.data.user) {                    
                     resolve(response.data.user)
                 } else {
                     reject(response.data.error)
@@ -36,11 +35,17 @@ class AuthService {
         })
     }
 
-    setToken = (token) => {
-        localStorage.setItem('acessToken', token)
+    signOut = () => {
+        this.removeToken();
     }
 
-    getToken = () => localStorage.getItem('acessToken')
+    setToken = (token) => {
+        localStorage.setItem('accessToken', token)
+    }
+
+    getToken = () => localStorage.getItem('accessToken')
+
+    removeToken = () => localStorage.removeItem('acessToken')
 
     isAuthenticated = () => !!this.getToken();
     

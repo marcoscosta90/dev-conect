@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { Bell } from 'react-feather';
-import Account from './Account'
+import Account from './Account';
 
 
 const useStyles = makeStyles({
@@ -31,9 +31,7 @@ const useStyles = makeStyles({
 })
 
 function Header() {
-    const classes = useStyles();
-
-    
+    const classes = useStyles();  
 
  return (   
     <AppBar position="fixed" color="inherit" className={classes.appBar}>
@@ -47,10 +45,8 @@ function Header() {
                 <SvgIcon className={classes.bell}>
                     <Bell />
                 </SvgIcon>
-                <Account />
-               
-            </div>
-         
+                <Account />               
+            </div>         
         </Toolbar>
     </AppBar>
     )

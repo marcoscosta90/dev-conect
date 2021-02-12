@@ -5,8 +5,7 @@ import { useSelector } from 'react-redux'
 
 function GuestRoute({ element: Component, ...rest}) {
     const account = useSelector((state) => state.account);
-    const isAuthenticated = Boolean(account.user);
-    console.log(isAuthenticated)
+    const isAuthenticated = Boolean(account.user);    
     
     return  <Route {...rest} element={
             isAuthenticated
