@@ -24,7 +24,7 @@ function Account() {
 
     const handleSignOut = () => {
          handleClose(); 
-         //logoff no app atraves de uma action no redux
+         //logoff app atraves de uma action no redux
          dispatch(signOut());
     }
  
