@@ -10,6 +10,6 @@ export default {
         secondary: {
             dark: colors.orange.A700,
             main: colors.orange.A400,
-            light: colors.orange.A300
+            light: colors.orange.A200
         }    
 }

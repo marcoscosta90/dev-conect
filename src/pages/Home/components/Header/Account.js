@@ -4,6 +4,7 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from '../../../../actions/accountActions'
+import { useNavigate } from 'react-router-dom'
 
 
 function Account() {
@@ -11,6 +12,7 @@ function Account() {
     const [isOpen, setOpen] = useState(false);
     const ref = useRef();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const isAuthenticated = !!account.user;
 
@@ -26,6 +28,7 @@ function Account() {
          handleClose(); 
          //logoff app atraves de uma action no redux
          dispatch(signOut());
+         navigate('/')
     }
  
     return (
@@ -39,34 +42,34 @@ function Account() {
             />
             {isAuthenticated ?
                 <Menu
-                anchorEl={ref.current}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center',
+                    anchorEl={ref.current}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
             }}
-                open={isOpen}
-                onClose={handleClose}
-                getContentAnchorEl={null}
+                    open={isOpen}
+                    onClose={handleClose}
+                    getContentAnchorEl={null}
             >
-                <MenuItem>Perfil</MenuItem>
-                <MenuItem>Meus favoritos</MenuItem>
-                <MenuItem>Meus posts</MenuItem>
-                <MenuItem>Minhas conexoes</MenuItem>
-                <MenuItem onClick={handleSignOut}>Sair</MenuItem>
+                    <MenuItem>Perfil</MenuItem>
+                    <MenuItem>Meus favoritos</MenuItem>
+                    <MenuItem>Meus posts</MenuItem>
+                    <MenuItem>Minhas conexoes</MenuItem>
+                    <MenuItem onClick={handleSignOut}>Sair</MenuItem>
                 </Menu>
                 :
                 <Menu
-                anchorEl={ref.current}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center',
+                    anchorEl={ref.current}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
             }}
-                open={isOpen}
-                onClose={handleClose}
-                getContentAnchorEl={null}
+                        open={isOpen}
+                        onClose={handleClose}
+                        getContentAnchorEl={null}
             >
-                <MenuItem>Registrar</MenuItem>
-                <MenuItem>Entrar</MenuItem>
+                        <MenuItem>Registrar</MenuItem>
+                        <MenuItem>Entrar</MenuItem>
               
                 </Menu>
             }

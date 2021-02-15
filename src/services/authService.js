@@ -45,7 +45,7 @@ class AuthService {
 
     getToken = () => localStorage.getItem('accessToken')
 
-    removeToken = () => localStorage.removeItem('acessToken')
+    removeToken = () => localStorage.removeItem('accessToken')
 
     isAuthenticated = () => !!this.getToken();
     
