@@ -10,6 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Popover from '@material-ui/core/Popover'
+import { makeStyles } from '@material-ui/styles'
 import {
     Bell as BellIcon,
     Star as StarIcon,
@@ -18,7 +19,7 @@ import {
     Users as ConnectionIcon,
   } from 'react-feather';
 
-import { getNotifications } from '../../../../actions/notificationsActions'
+import { getNotifications } from '../../../actions/notificationsActions'
 
 
 const iconsMap = {
@@ -28,6 +29,13 @@ const iconsMap = {
     connection: ConnectionIcon
 }
 
+const useStyles = makeStyles((theme) => ({
+    icon: {
+        background: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText
+    }
+}))
+
 function Notifications() {
     const account = useSelector(state => state.account);
     const isAuthenticated = !!account.user;
@@ -35,7 +43,8 @@ function Notifications() {
 
     const ref = useRef(null);
     const [isOpen, setOpen ] = useState(false);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const classes = useStyles();
 
     const handleOpen = () => {
         setOpen(true)
@@ -82,7 +91,7 @@ function Notifications() {
                                return (
                             <ListItem>
                                 <ListItemAvatar>
-                                    <Avatar>
+                                    <Avatar className={classes.icon}>
                                         <SvgIcon>
                                             <Icon />
                                         </SvgIcon>

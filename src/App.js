@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import theme from './theme';
 import store from './store'
 
+
 import './mock'
 
 function App() {
@@ -19,9 +20,8 @@ function App() {
         <BrowserRouter>
           <Auth>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <GuestRoute path="/sign-in" element={<SignIn />} />
-              <Route path="*" element={<h1>Not found 404</h1> } />
+             <GuestRoute path="/sign-in" element={<SignIn />} />
+              <Route path="//*" element={<Home />} />              
             </Routes>   
           </Auth> 
         </BrowserRouter>    

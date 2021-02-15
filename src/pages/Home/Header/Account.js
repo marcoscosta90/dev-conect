@@ -3,7 +3,7 @@ import Avatar from '@material-ui/core/Avatar'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { useSelector, useDispatch } from 'react-redux';
-import { signOut } from '../../../../actions/accountActions'
+import { signOut } from '../../../actions/accountActions'
 import { useNavigate } from 'react-router-dom'
 
 

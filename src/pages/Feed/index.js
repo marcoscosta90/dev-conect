@@ -1,6 +1,10 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import PostCard from '../../../components/PostCard'
+import PostCard from '../../components/PostCard'
+import NavBar from './NavBar'
+
+import Container from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box';
 
 const useSytles = makeStyles((theme) => ({
     root: {
@@ -44,7 +48,11 @@ const useSytles = makeStyles((theme) => ({
 
 function Feed() {
     const classes = useSytles();
+
     return (
+        <Container maxWidth="lg">
+        <Box display="flex">
+            <NavBar />          
         <div className={classes.root}>
             {
             posts.map(post => (
@@ -52,6 +60,8 @@ function Feed() {
             ))
             } 
         </div>
+        </Box>
+    </Container>  
     )
 }
 

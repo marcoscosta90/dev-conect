@@ -1,12 +1,11 @@
 import React from 'react'
-// import './style.css'
 import { makeStyles } from '@material-ui/core/styles';
+import { Routes, Route } from 'react-router-dom'
+import Header from './Header'
+import NewPost from '../Post/New'
+import Feed from '../Feed'
 
-import Header from './components/Header'
-import NavBar from './components/NavBar'
-import Feed from './components/Feed'
-import Container from '@material-ui/core/Container'
-import Box from '@material-ui/core/Box';
+
 
 const useStyles = makeStyles({
    root: {
@@ -14,7 +13,7 @@ const useStyles = makeStyles({
        flexDirection: 'column'
    },
    main: {
-    height: '100vh',
+    height: 'calc(100vh - 64px)',
     padding: 24
    
    },
@@ -29,15 +28,15 @@ function Home() {
     return  (
     <div className={classes.root}>
         <Header />
-        <div className={classes.toolbar}></div>
-        <main className={classes.main}>
-            <Container maxWidth="lg">
-                <Box display="flex">
-                    <NavBar />
-                    <Feed />
-                </Box>
-            </Container>  
-       </main>
+        <div className={classes.toolbar} />
+        <main className={classes.main}>  
+            <Routes>
+                <Route path="/" element={<Feed />}/>
+                <Route path="/feed" element={<Feed />}/>
+                <Route path="/post/new" element={<NewPost/>}/> 
+                <Route path="*" element={<h1>Not found 404</h1> } />              
+            </Routes>
+        </main>
     </div>
     );
 }
