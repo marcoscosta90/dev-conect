@@ -3,13 +3,14 @@ import axios from '../utils/axios'
 export const GET_NOTIFICATIONS = '@NOTIFICATIONS/GET_NOTIFICATIONS'
 
 const getNotifications = () => {
-    return (dispatch) => {
-        const notifications = axios.get('/api/notifications');
+    return async (dispatch) => {
+        const notifications = await axios.get('/api/notifications');
+ 
 
         dispatch({
             type: GET_NOTIFICATIONS,
             payload: {
-                notifications,
+                notifications: notifications.data.notifications,
             }
         })
     }

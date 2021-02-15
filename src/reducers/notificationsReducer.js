@@ -12,9 +12,7 @@ const notificationsReducer = (state = INITIAL_STATE, action) => {
                 notifications: action.payload.notifications
             }
         default:
-            return {
-                state
-             }
+            return state
     }
 
 
