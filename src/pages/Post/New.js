@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
 import Box from '@material-ui/core/Box'
 import AppBar from '@material-ui/core/AppBar';
@@ -6,8 +7,11 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 import  TextField  from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete'
-import Typography from '@material-ui/core/Typography'
 import { useDropzone } from 'react-dropzone'
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider'
+import Avatar from '@material-ui/core/Avatar'
+import Markdown from 'react-markdown'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         marginRight: theme.spacing(2)
+    },
+    avatar: {
+        marginRight: theme.spacing(1)
     }
 }))
 
@@ -50,6 +57,7 @@ function NewPost() {
     const [title, setTitle] = useState('');
     const [tags, setTags] = useState([{title: 'react.js'}]);
     const [markdownText, setMarkdownText] = useState('');
+    const account = useSelector(state => state.account)
 
 
 
@@ -123,11 +131,28 @@ function NewPost() {
                     Editor markdown
             </textarea>
             </Box>
-            <Box width="50%" height="100%" padding={2} > 
+           
+        <Box width="50%" height="100%" padding={2} > 
             {image && (
             <img src={image} alt="background" className={classes.imagePreview} />  )}
-            <Typography variant="h2">{title}</Typography>
-            <Typography variant="body1">{tags.map(item => item.title).join(',')}</Typography>
+            <Typography 
+                variant="h2">
+                    {title}
+            </Typography>
+            <Box display="flex" alignItems="center">
+            <Box>
+                <Avatar className={classes.avatar} src={account.user?.avatar}/>
+            </Box>
+            <Box>
+                <Typography variant="body1">{account.user?.name}</Typography>
+                <Typography vriant="body2" color="textSecondary">10 meses atras</Typography>
+            </Box>
+            </Box>
+            <Typography 
+                variant="body1">{tags.map(item => item.title).join(',')}
+            </Typography>
+            <Divider />    
+            <Markdown source={markdownText} />        
             </Box>
         </Box>
         <AppBar position="fixed" color="inherit" className={classes.appBar}>
