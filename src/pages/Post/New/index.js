@@ -1,25 +1,13 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
 import Box from '@material-ui/core/Box'
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar'
-import Button from '@material-ui/core/Button'
-
 import PostEditor from './Editor'
 import PostPreview from './Preview'
+import BottomBar from './BottomBar'
+
 import { PostProvider } from '../../../context/PostContext'
 
-const useStyles = makeStyles((theme) => ({
-    root:{},
-    appBar: {
-        top: 'auto',
-        bottom: 0,
-        alignItems: 'center'
-      },  
-   }))
 
-function NewPost() {   
-    const classes = useStyles();
+function NewPost() {     
     
     return (
         <PostProvider>        
@@ -31,12 +19,7 @@ function NewPost() {
                     <PostPreview />
                 </Box>
             </Box>
-            <AppBar position="fixed" color="inherit" className={classes.appBar}>
-            <Toolbar> 
-                    <Button className={classes.button}>Salvar rascunho</Button>
-                    <Button color="secondary" variant="outlined">Publicar</Button>
-            </Toolbar>
-            </AppBar>
+            <BottomBar />
         </PostProvider>
     )
 }

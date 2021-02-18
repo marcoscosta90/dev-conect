@@ -8,7 +8,6 @@ Online community for developers to share knowledge with each other
 
 Make sure this is updated based on the sections included:
 
-
 - [Getting Started](#getting-started)
 - [Support](#support)
 - [License](#license)
