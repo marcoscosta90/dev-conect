@@ -19,12 +19,12 @@ const useSytles = makeStyles((theme) => ({
             id: 1,
             name: 'Marcos Costa',
             username: 'marcoscosta',        
-            avatar: '/images/avatars/avatar_1.jpeg',
+            avatar: '/images/avatars/avatar_1.jpg',
         },
         title: "Criando um app do zero com react.js",
         date: "February 9, 2021",
         description: "E ai pessoal qual o framework preferido de voces",
-        hashtags: "#js, #reat, #dev",
+        hashtags: "#js, #react, #dev",
         image: "/images/posts/post9.jpeg"
     },
     {   
@@ -33,12 +33,12 @@ const useSytles = makeStyles((theme) => ({
             id: 1,
             name: 'Marcos Costa',
             username: 'lucasnhimi',        
-            avatar: '/images/avatars/avatar_1.jpeg',
+            avatar: '/images/avatars/avatar_1.jpg',
     },
     title: "Criando um app do zero com react.js",
     date: "February 7, 2021",
     description: "E ai pessoal qual o framework preferido de voces",
-    hashtags: "#js, #reat, #dev",
+    hashtags: "#js, #react, #dev",
     image: "/images/posts/post8.png"
     }
 
