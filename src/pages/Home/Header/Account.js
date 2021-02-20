@@ -51,8 +51,7 @@ function Account() {
                     onClose={handleClose}
                     getContentAnchorEl={null}
             >
-                    <MenuItem>Perfil</MenuItem>
-                    <MenuItem>Meus favoritos</MenuItem>
+                    <MenuItem>Perfil</MenuItem>                    
                     <MenuItem>Meus posts</MenuItem>
                     <MenuItem>Minhas conexoes</MenuItem>
                     <MenuItem onClick={handleSignOut}>Sair</MenuItem>
@@ -68,8 +67,8 @@ function Account() {
                         onClose={handleClose}
                         getContentAnchorEl={null}
             >
-                        <MenuItem>Registrar</MenuItem>
-                        <MenuItem>Entrar</MenuItem>
+                        <MenuItem onClick={() => navigate('/sign-up')}>Registrar</MenuItem>
+                        <MenuItem onClick={() => navigate('/sign-in')}>Entrar</MenuItem>
               
                 </Menu>
             }
