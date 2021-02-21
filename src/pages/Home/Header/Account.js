@@ -51,7 +51,7 @@ function Account() {
                     onClose={handleClose}
                     getContentAnchorEl={null}
             >
-                    <MenuItem>Perfil</MenuItem>                    
+                    <MenuItem>Profile</MenuItem>                    
                     <MenuItem>Meus posts</MenuItem>
                     <MenuItem>Minhas conexoes</MenuItem>
                     <MenuItem onClick={handleSignOut}>Sair</MenuItem>
