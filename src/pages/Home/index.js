@@ -8,10 +8,11 @@ import Post from '../Post'
 import Profile from '../Profile'
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
    root: {
        display: 'flex',
-       flexDirection: 'column'
+       flexDirection: 'column',
+       backgroundColor: theme.palette.background.dark
    },
    main: {
     height: 'calc(100vh - 64px)',
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
    toolbar: {
         minHeight: 64
    }
-})
+}));
 
 function Home() {
     const classes = useStyles();

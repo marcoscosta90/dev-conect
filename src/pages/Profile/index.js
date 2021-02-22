@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import Tabs from '@material-ui/core/Tabs';

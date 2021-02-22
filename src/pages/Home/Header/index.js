@@ -42,8 +42,11 @@ function Header() {
                     <Notifications />
                 </Box>
                 <Box ml={2}>
+                    <Settings />
+                </Box>        
+                <Box ml={2}>
                     <Account />
-                </Box>               
+                </Box>          
             </div>         
         </Toolbar>
     </AppBar>

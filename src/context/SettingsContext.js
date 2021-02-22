@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from 'react';
 import _ from 'lodash'
-import { setSettings } from './utils/settings'
+import { setSettings } from '../utils/settings'
 
 export const SettingsContext = createContext();
 
@@ -13,6 +13,7 @@ export function SettingsProvider({settings, children}) {
 
     const handleSave = (newSettings) => {
         const mergedSettings = _.merge({}, currentSettings, newSettings)
+
         setCurrentSettings(mergedSettings);
         setSettings(mergedSettings)
     }
