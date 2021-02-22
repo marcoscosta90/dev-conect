@@ -1,23 +1,26 @@
 import React from 'react'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Provider } from 'react-redux'
+
 
 import Auth from './components/Auth'
 import GuestRoute from './routes/GuestRoute'
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Home from './pages/Home';
-import theme from './theme';
-import store from './store'
+// import theme from './theme';
+import  createTheme  from './theme'
+import { useSettings } from './context/SettingsContext'
+
 
 
 import './mock'
 
 function App() {
-   return ( 
-     <Provider store={store}>   
-      <ThemeProvider theme={theme}>
+    const {settings} = useSettings();
+
+   return (      
+      <ThemeProvider theme={createTheme(settings)}>
         <BrowserRouter>
           <Auth>
             <Routes>
@@ -28,7 +31,7 @@ function App() {
           </Auth> 
         </BrowserRouter>    
       </ThemeProvider> 
-     </Provider>
+     
   );
 }
 

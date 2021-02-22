@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Account from './Account';
 import Notifications from './Notifications'
+import Settings from './Settings'
 import Box from '@material-ui/core/Box'
 import WritePost from './WritePost'
 import { Link } from 'react-router-dom'

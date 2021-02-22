@@ -43,15 +43,14 @@ function Account() {
             {isAuthenticated ?
                 <Menu
                     anchorEl={ref.current}
-                    anchorOrigin={{
+                    anchorOrigin={{ 
                         vertical: 'bottom',
                         horizontal: 'center',
             }}
                     open={isOpen}
                     onClose={handleClose}
-                    getContentAnchorEl={null}
-            >
-                    <MenuItem>Profile</MenuItem>                    
+                    getContentAnchorEl={null}>
+                    <MenuItem onClick={() => navigate(`/${account.user?.username}`)}>Perfil</MenuItem>                    
                     <MenuItem>Meus posts</MenuItem>
                     <MenuItem>Minhas conexoes</MenuItem>
                     <MenuItem onClick={handleSignOut}>Sair</MenuItem>

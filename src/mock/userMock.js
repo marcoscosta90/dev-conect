@@ -26,3 +26,15 @@ mock.onPost('/api/home/login').reply((config) => {
     }
     return [200, { user }]
 })
+
+mock.onGet('/api/home/user/marcoscosta').reply(200, {
+    id: 1,
+    name: 'Marcos Costa',
+    username: 'marcoscosta',
+    email: 'marcoscosta@conectadev.com',
+    accessToken: 'dadadadadadadad',
+    avatar: '/images/avatars/avatar_1.jpg',
+    joinedIn: '06 de janeiro, 2020',
+    work: 'Arquiteto de Software',
+    totalPost: '388',
+  });
