@@ -31,7 +31,7 @@ mock.onGet('/api/home/user/marcoscosta').reply(200, {
     id: 1,
     name: 'Marcos Costa',
     username: 'marcoscosta',
-    email: 'marcoscosta@conectadev.com',
+    email: 'marcoscosta@gmail.com',
     accessToken: 'dadadadadadadad',
     avatar: '/images/avatars/avatar_1.jpg',
     joinedIn: '06 de janeiro, 2020',
