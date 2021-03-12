@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
    },
    main: {
     height: 'calc(100vh - 64px)',
-    padding: 24
+    padding: 22
    
    },
    toolbar: {
