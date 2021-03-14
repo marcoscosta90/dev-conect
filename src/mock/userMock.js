@@ -35,6 +35,6 @@ mock.onGet('/api/home/user/marcoscosta').reply(200, {
     accessToken: 'dadadadadadadad',
     avatar: '/images/avatars/avatar_1.jpg',
     joinedIn: '06 de janeiro, 2020',
-    work: 'Arquiteto de Software',
+    work: 'Arquiteto ',
     totalPost: '388',
   });
